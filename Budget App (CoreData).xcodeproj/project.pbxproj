@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3588719F2C87D638005EF66E /* Budgetattributes+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3588719D2C87D638005EF66E /* Budgetattributes+CoreDataClass.swift */; };
+		358871A02C87D638005EF66E /* Budgetattributes+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3588719E2C87D638005EF66E /* Budgetattributes+CoreDataProperties.swift */; };
 		35AA6A6B2C87101400BC1C6C /* Budget_App__CoreData_App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AA6A6A2C87101400BC1C6C /* Budget_App__CoreData_App.swift */; };
 		35AA6A6D2C87101400BC1C6C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AA6A6C2C87101400BC1C6C /* ContentView.swift */; };
 		35AA6A6F2C87101500BC1C6C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35AA6A6E2C87101500BC1C6C /* Assets.xcassets */; };
@@ -16,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3588719D2C87D638005EF66E /* Budgetattributes+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Budgetattributes+CoreDataClass.swift"; sourceTree = "<group>"; };
+		3588719E2C87D638005EF66E /* Budgetattributes+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Budgetattributes+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		35AA6A672C87101400BC1C6C /* Budget App (CoreData).app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Budget App (CoreData).app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		35AA6A6A2C87101400BC1C6C /* Budget_App__CoreData_App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Budget_App__CoreData_App.swift; sourceTree = "<group>"; };
 		35AA6A6C2C87101400BC1C6C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -39,6 +43,8 @@
 		35AA6A5E2C87101400BC1C6C = {
 			isa = PBXGroup;
 			children = (
+				3588719D2C87D638005EF66E /* Budgetattributes+CoreDataClass.swift */,
+				3588719E2C87D638005EF66E /* Budgetattributes+CoreDataProperties.swift */,
 				35AA6A692C87101400BC1C6C /* Budget App (CoreData) */,
 				35AA6A682C87101400BC1C6C /* Products */,
 			);
@@ -143,8 +149,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3588719F2C87D638005EF66E /* Budgetattributes+CoreDataClass.swift in Sources */,
 				35AA6A742C87101500BC1C6C /* Persistence.swift in Sources */,
 				35AA6A772C87101500BC1C6C /* Budget_App__CoreData_.xcdatamodeld in Sources */,
+				358871A02C87D638005EF66E /* Budgetattributes+CoreDataProperties.swift in Sources */,
 				35AA6A6D2C87101400BC1C6C /* ContentView.swift in Sources */,
 				35AA6A6B2C87101400BC1C6C /* Budget_App__CoreData_App.swift in Sources */,
 			);

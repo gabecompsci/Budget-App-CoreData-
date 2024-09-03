@@ -10,77 +10,197 @@ import CoreData
 
 struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext
-
-    @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
-        animation: .default)
-    private var items: FetchedResults<Item>
-
+    @State var budgetcategory: Array<String> = []
+    
+    // data  for category prioritization
+    
+    @State var budgetamount: Array<Int> = []
+    
+    // data for budget sum
+    
+    
+    enum prioritylevel
+    
+    {
+        case high
+        case low
+    }
+    
+    // labels for category prioritization
+    
+    
+    @State var showsheet = false
+    @State var newitemfield  = ""
+    @State var newitemfield2: Int?
+    @State var expenseTab: Int?
+    
     var body: some View {
-        NavigationView {
-            List {
-                ForEach(items) { item in
-                    NavigationLink {
-                        Text("Item at \(item.timestamp!, formatter: itemFormatter)")
-                    } label: {
-                        Text(item.timestamp!, formatter: itemFormatter)
+        NavigationStack {
+            
+            
+            
+            NavigationView {
+                
+                // make add button add a groupbox..
+                // so feautures for groubox can  be used within code
+                // such as content and label
+                // and to be able to delete an enite groupbox from a section
+                
+                //pseudo for groupbox will be ass follows
+                // groupbox: view
+                // Label
+                // in HStack under label within groupbox // Content and subject
+                // or space lis into groupbox configuratuion
+                
+                
+                
+                // learn how to code out a listing for budgetcategory array and also for budget amount but put into the same view
+                
+                
+                Group {
+                    if budgetcategory.count <= 1 && budgetamount.count <= 1  {
+                        Text("No Item") }
+                    else {
+                        List((1...budgetcategory.count-1), id: \.self)
+                                                   { i in
+                            Text(budgetcategory[i])
+                                .contextMenu {
+                                    Button(action: {
+                                        budgetcategory.remove(at: i)
+                                    }, label: {
+                                        Label("Delete", systemImage: "delete.left")
+                                    })
+                                    
+                                }
+                            
+                            
+                            
+                            
+                        }
+                        
+                        
                     }
                 }
-                .onDelete(perform: deleteItems)
+                .padding()
+                .listRowSpacing(8.0)
+                .listRowSeparator(.hidden)
+                .navigationTitle("Budget")
+                .navigationBarTitleDisplayMode(.inline)
+                
             }
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
-                }
-                ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
+            Button(action:  {
+                showsheet.toggle()
+                newitemfield = ""
+            }, label: {
+                Image(systemName: "plus")
+                    .foregroundColor(.gray)
+            })
+            .padding()
+            
+            HStack(alignment: .bottom) {
+                
+                Spacer()
+                
+                
+                                // ASK TUTOR IF I CAN TURN back BUTTON BLACK
+                                
+                                    GroupBox(label: Text("Expenses"), content:  {
+                                        Text("Expenses")  })
+                
+                                    .foregroundColor(.white)
+                
+                                
+                
+                                GroupBox(label: Text("Budget"), content: {
+                                    Text("2500") })
+                                .foregroundColor(.white)
+                
+                               
+                                    GroupBox(label: Text("Income"), content: {
+                                        Text("200") })
+                                    .foregroundColor(.white)
+                               
+                Spacer()
+            }
+            
+            .onChange(of: budgetcategory) {
+                save()
+                load()
+            }
+            .onAppear() {
+                save()
+                load()
+            }
+            
+            .refreshable {
+                save()
+                load()
+            }
+            
+            .sheet(isPresented: $showsheet)  {
+                NavigationStack {
+                    VStack {
+                        List {
+                            TextField("Category", text: $newitemfield)
+                            
+                            TextField("Amount", value: $newitemfield2, formatter: NumberFormatter())
+                                .keyboardType(.numberPad)
+                            
+                        }
+                        
+                        .navigationTitle("New Entry")
+                        .toolbar{
+                            Button("add") {
+                                
+                                
+                                
+                                budgetcategory.append(newitemfield)
+                                budgetamount.append(newitemfield2 ?? 0)
+                                showsheet.toggle()
+                                
+                                
+                            }
+                            .foregroundColor(.gray)
+                            
+                            //
+                            
+                        }
+                     
+                       
+
                     }
                 }
+                .presentationDetents([.height(300)])
             }
-            Text("Select an item")
+            
+
+            
         }
+        
+        .preferredColorScheme(.dark)
+    }
+    
+    
+    
+    func save() -> Void {
+        let temp = budgetcategory.joined(separator: "/[split]/")
+        let key = UserDefaults.standard
+        key.set(temp, forKey: "budgetcategory")
+    }
+    func load() -> Void {
+        let key = UserDefaults.standard
+        let temp = key.string(forKey: "budgetcategory") ?? ""
+        let temparray = temp.components(separatedBy: "/[split]/")
+        budgetcategory = temparray
     }
 
-    private func addItem() {
-        withAnimation {
-            let newItem = Item(context: viewContext)
-            newItem.timestamp = Date()
 
-            do {
-                try viewContext.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-            }
-        }
-    }
 
-    private func deleteItems(offsets: IndexSet) {
-        withAnimation {
-            offsets.map { items[$0] }.forEach(viewContext.delete)
 
-            do {
-                try viewContext.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-            }
-        }
-    }
 }
 
-private let itemFormatter: DateFormatter = {
-    let formatter = DateFormatter()
-    formatter.dateStyle = .short
-    formatter.timeStyle = .medium
-    return formatter
-}()
 
+    
 #Preview {
     ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
 }

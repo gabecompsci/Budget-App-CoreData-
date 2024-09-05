@@ -9,7 +9,9 @@ import SwiftUI
 import CoreData
 
 struct ContentView: View {
-    @Environment(\.managedObjectContext) private var viewContext
+    
+    
+    
     @State var budgetcategory: Array<String> = []
     
     // data  for category prioritization
@@ -62,7 +64,7 @@ struct ContentView: View {
                         Text("No Item") }
                     else {
                         List((1...budgetcategory.count-1), id: \.self)
-                                                   { i in
+                                                                           { i in
                             Text(budgetcategory[i])
                                 .contextMenu {
                                     Button(action: {
@@ -77,6 +79,7 @@ struct ContentView: View {
                             
                             
                         }
+                        
                         
                         
                     }
@@ -105,7 +108,7 @@ struct ContentView: View {
                                 // ASK TUTOR IF I CAN TURN back BUTTON BLACK
                                 
                                     GroupBox(label: Text("Expenses"), content:  {
-                                        Text("Expenses")  })
+                                        Text("2000")  })
                 
                                     .foregroundColor(.white)
                 
@@ -117,7 +120,7 @@ struct ContentView: View {
                 
                                
                                     GroupBox(label: Text("Income"), content: {
-                                        Text("200") })
+                                        Text("3200") })
                                     .foregroundColor(.white)
                                
                 Spacer()
@@ -202,5 +205,5 @@ struct ContentView: View {
 
     
 #Preview {
-    ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+    ContentView()
 }

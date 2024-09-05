@@ -9,12 +9,13 @@ import SwiftUI
 
 @main
 struct Budget_App__CoreData_App: App {
-    let persistenceController = PersistenceController.shared
+    
+    @StateObject private var dataController = DataController()
 
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+                .environment(\.managedObjectContext, dataController.container.viewContext)
         }
     }
 }

@@ -7,17 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		357800322C89457D005DDF59 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357800312C89457D005DDF59 /* DataController.swift */; };
 		3588719F2C87D638005EF66E /* Budgetattributes+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3588719D2C87D638005EF66E /* Budgetattributes+CoreDataClass.swift */; };
 		358871A02C87D638005EF66E /* Budgetattributes+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3588719E2C87D638005EF66E /* Budgetattributes+CoreDataProperties.swift */; };
 		35AA6A6B2C87101400BC1C6C /* Budget_App__CoreData_App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AA6A6A2C87101400BC1C6C /* Budget_App__CoreData_App.swift */; };
 		35AA6A6D2C87101400BC1C6C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AA6A6C2C87101400BC1C6C /* ContentView.swift */; };
 		35AA6A6F2C87101500BC1C6C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35AA6A6E2C87101500BC1C6C /* Assets.xcassets */; };
 		35AA6A722C87101500BC1C6C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35AA6A712C87101500BC1C6C /* Preview Assets.xcassets */; };
-		35AA6A742C87101500BC1C6C /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AA6A732C87101500BC1C6C /* Persistence.swift */; };
 		35AA6A772C87101500BC1C6C /* Budget_App__CoreData_.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 35AA6A752C87101500BC1C6C /* Budget_App__CoreData_.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		357800312C89457D005DDF59 /* DataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		3588719D2C87D638005EF66E /* Budgetattributes+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Budgetattributes+CoreDataClass.swift"; sourceTree = "<group>"; };
 		3588719E2C87D638005EF66E /* Budgetattributes+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Budgetattributes+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		35AA6A672C87101400BC1C6C /* Budget App (CoreData).app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Budget App (CoreData).app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -25,7 +26,6 @@
 		35AA6A6C2C87101400BC1C6C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		35AA6A6E2C87101500BC1C6C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		35AA6A712C87101500BC1C6C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		35AA6A732C87101500BC1C6C /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		35AA6A762C87101500BC1C6C /* Budget_App__CoreData_.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Budget_App__CoreData_.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -63,9 +63,9 @@
 			children = (
 				35AA6A6A2C87101400BC1C6C /* Budget_App__CoreData_App.swift */,
 				35AA6A6C2C87101400BC1C6C /* ContentView.swift */,
-				35AA6A6E2C87101500BC1C6C /* Assets.xcassets */,
-				35AA6A732C87101500BC1C6C /* Persistence.swift */,
 				35AA6A752C87101500BC1C6C /* Budget_App__CoreData_.xcdatamodeld */,
+				357800312C89457D005DDF59 /* DataController.swift */,
+				35AA6A6E2C87101500BC1C6C /* Assets.xcassets */,
 				35AA6A702C87101500BC1C6C /* Preview Content */,
 			);
 			path = "Budget App (CoreData)";
@@ -149,8 +149,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				357800322C89457D005DDF59 /* DataController.swift in Sources */,
 				3588719F2C87D638005EF66E /* Budgetattributes+CoreDataClass.swift in Sources */,
-				35AA6A742C87101500BC1C6C /* Persistence.swift in Sources */,
 				35AA6A772C87101500BC1C6C /* Budget_App__CoreData_.xcdatamodeld in Sources */,
 				358871A02C87D638005EF66E /* Budgetattributes+CoreDataProperties.swift in Sources */,
 				35AA6A6D2C87101400BC1C6C /* ContentView.swift in Sources */,
